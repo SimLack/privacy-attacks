@@ -76,11 +76,7 @@ class SamplingStrategy(Enum):
 def prepare_data(data: pd.DataFrame) -> (np.ndarray, np.ndarray):
     features = data.drop("y", axis=1).values
     labels = data["y"].values
-    #print("labels vor fit_transform(labels):")
-    #print(labels)
     labels = preprocessing.LabelEncoder().fit_transform(labels)
-    #print("labels nach fit_transform(labels):")
-    #print(labels)
     return features, labels
 
 
@@ -98,20 +94,6 @@ def print_results(row_labels, prediction, labels, graph: gc.Graph):
 
 
 def _run_classification(training_features, training_labels, test_features, clf):
-    # scaling
-    """
-    from sklearn.preprocessing import StandardScaler  
-    scaler = StandardScaler()
-    # Don't cheat - fit only on training data
-    scaler.fit(training_features)
-    print("features before scaling")
-    print(training_features)
-    training_features = scaler.transform(training_features)
-    print("features after scaling")
-    print(training_features)
-    # apply same transformation to test data
-    test_features = scaler.transform(test_features)  
-    """
     # debug
     try:
         clf.fit(training_features, training_labels)  # fit classifier
@@ -151,26 +133,6 @@ def _train(classification_function, train_data: pd.DataFrame, test_data: pd.Data
     return train_labels, train_predicted, train_probabilities, test_labels, test_predicted, test_probabilities
 
 
-"""
-def plot_degree_correct(heading: str, graph: gc.Graph, description, labels, prediction):
-    print("description", description)
-    print(type(list(labels == prediction)))
-    print(labels == prediction)
-
-    degrees = list(map(lambda x: graph.degree(x), description))
-
-    pos_deg = list(compress(degrees, labels))
-    pos_pred = list(compress(list(prediction == labels), labels))
-
-    print("len res", list(prediction == labels))
-
-    plt.title(heading)
-    plt.plot(pos_deg, pos_pred, 'bo')
-    # plt.plot(degrees,list(labels==prediction),'ro')
-    plt.show()
-    plt.close()
-"""
-
 
 def _auc(label, prediction):
     fpr, tpr, thresholds = metrics.roc_curve(label, prediction, pos_label=1)
@@ -186,7 +148,6 @@ def create_ranking(labels, predicted, probabilities):
 def precision_at_k(labels, predicted, probabilities, k: int):
     ranking = create_ranking(labels, predicted, probabilities)
     ranking = ranking.head(n=k)
-    print(ranking)
     return metrics.precision_score(y_true=ranking["labels"].tolist(), y_pred=ranking["predicted"].tolist(), pos_label=1)
 
 
@@ -449,7 +410,6 @@ def test(save_info: sl.MemoryAccess, graph: gc.Graph, feature_type: ft.FeatureTy
         diff_iter = [-1]
 
 
-    print("diff iter in test:",diff_iter)
     for i in diff_iter:
         if i >= 0:
             save_info.get_diff_type().set_iter(i)
@@ -474,9 +434,6 @@ def test(save_info: sl.MemoryAccess, graph: gc.Graph, feature_type: ft.FeatureTy
                                                             num_tr_graphs_limit=limit_num_training_graphs)
 
         # check if embedding is already trained
-        print("target overall file name:",target_overall_file_name)
-        print("list nodes to predict:",list_nodes_to_predict)
-        print("nodes to train on:",nodes_to_train_on)
         if check_for_existing and full_test_results_available(target_overall_file_name=target_overall_file_name,
                                                               save_info=save_info, classifier=classifier):
             continue
@@ -511,7 +468,7 @@ def test(save_info: sl.MemoryAccess, graph: gc.Graph, feature_type: ft.FeatureTy
                                              sampling_strategy, c)
             #"""
             start_time = datetime.datetime.now()
-            with ProcessingPool(min(8, len(list_nodes_to_predict))) as pool:
+            with ProcessingPool(min(min(8, len(list_nodes_to_predict)),multiprocessing.cpu_count())) as pool:
                 for res in pool.imap(exp_per_node, list_nodes_to_predict):
                     results_per_node[res[1]] = res[0]
             print("Pathos needed:",round((datetime.datetime.now()-start_time).total_seconds(),2),"seconds")

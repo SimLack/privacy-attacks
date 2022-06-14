@@ -65,7 +65,6 @@ def calc_avg_distance_matrix(graph: gc.Graph,
     save_info.save_avg_distance_matrix(removed_nodes=removed_nodes, avg_dm=avg_dm, graph_without_nodes=graph_without_nodes)
     # delete dms for memory space
     save_info.delete_distance_matrices(removed_nodes=removed_nodes,graph_without_nodes=graph_without_nodes)
-    print("END OF AVG DM CALCING")
     return avg_dm
 
 
@@ -132,12 +131,10 @@ def __compute_training_features_for_one_node(dm_original: pd.DataFrame,
                                                     removed_nodes=[node_to_predict, node],
                                                     save_info=save_info,
                                                     graph_without_nodes=[node_to_predict, node])
-            #print("odm", type(dm_reduced), "rdm", type(dm_reduced_2))
             diff_reduced = cf.create_difference_matrix(dm_reduced, dm_reduced_2, removed_nodes=[node_to_predict, node],
                                                        save_info=save_info,graph_without_nodes=[node_to_predict, node])
 
 
-            print("rdiff", type(diff_reduced), "odm", type(dm_reduced), "rdm", type(dm_reduced_2))
             del dm_reduced_2
             # compute training data
             cf.create_features(diff=diff_reduced, removed_nodes=[node_to_predict, node],
