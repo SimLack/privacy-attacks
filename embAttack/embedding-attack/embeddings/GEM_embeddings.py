@@ -58,11 +58,6 @@ class GEM_embedding(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
                 continue
             print(f"embedding iteration number:{iteration+1}/{num_of_embeddings}.")
             Y = self.__gem_embedding.learn_embedding(graph=nx_g, prevStepInfo=False,savefilesuffix=str(removed_nodes)+str(int(iteration)),save_info=save_info)
-            # delete node information
-            #if len(graph_without_nodes) > 0:
-            #    dlnode = graph_without_nodes[-1]
-            #    Y[dlnode,:] = 0
-            #emb = pd.DataFrame(Y, index=graph.nodes())
 
             save_info.save_embedding(removed_nodes=removed_nodes, iteration=iteration, embedding=emb, graph_without_nodes=graph_without_nodes)
             del emb, Y

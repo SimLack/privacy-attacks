@@ -27,23 +27,12 @@ def __calc_dm(graph: gc.Graph, removed_nodes: [int], save_info: sl.MemoryAccess,
         # model = embedding_function(graph=graph, save_info=save_info, removed_nodes=removed_nodes, iteration=i)
         # thows error if embedding does not exist
 
-        print("removed_nodes:",removed_nodes)
-        #print("iteration i:",i)
-        print("graph_without_nodes:",graph_without_nodes)
         model = save_info.load_embedding(removed_nodes=removed_nodes, iteration=i, graph_without_nodes=graph_without_nodes)
-        #print(f"model in __calc_dm for removed_nodes:{removed_nodes} and gwn:{graph_without_nodes}")
-        #print(model)
 
 
-        #print("removed_nodes:",removed_nodes,"graphwithoutnodes:",graph_without_nodes)
-        #print("model:",model)
-        print("graph nodes# in calcdm:",len(list(graph.nodes())))
         dm = cd.calc_distances(model=model, graph=graph, save_info=save_info, removed_nodes=removed_nodes, iteration=i,
                                save=False, graph_without_nodes=graph_without_nodes)
 
-        print("dm in __calc_dm is:")
-        print(dm[:20])
-        #print("END OF CALC DM")
         save_info.save_distance_matrix(removed_nodes=removed_nodes, iteration=i, dm=dm, graph_without_nodes=graph_without_nodes)
 
         return i, dm
@@ -63,24 +52,15 @@ def calc_avg_distance_matrix(graph: gc.Graph,
 
     dm_calc_func = functools.partial(__calc_dm, graph, removed_nodes, save_info, graph_without_nodes)
 
-    print("used_embeddings is:",used_embeddings)
     for iteration in used_embeddings:
-        print("iter is:",iteration)
-        print("type graph:",type(graph))
         res = dm_calc_func(iteration)
         i, dm = res
-        print("shape dm und avg_dm")
-        print(np.shape(dm),np.shape(avg_dm))
-        #print("assure same labels of avg_dm und dm in line 70")
         utils.assure_same_labels([avg_dm, dm],
                                  "Format of distance matrix iteration {} \
                                  for removed nodes  {} is not correct".format(i, removed_nodes))
         avg_dm += dm
 
     avg_dm = avg_dm.div(len(used_embeddings))
-    #print("graph without nodes is:",graph_without_nodes)
-    #avg_dm.iloc[graph_without_nodes[-1],:] = 0
-    #avg_dm.iloc[:,graph_without_nodes[-1]] = 0
     # save avg distance matrix
     save_info.save_avg_distance_matrix(removed_nodes=removed_nodes, avg_dm=avg_dm, graph_without_nodes=graph_without_nodes)
     # delete dms for memory space
@@ -104,23 +84,11 @@ def __compute_training_features_for_one_node(dm_original: pd.DataFrame,
     :param nodes_to_train_on: a list of nodes that are removed from the graph after removing
             node_to_predict to generate training data
     """
-    # used to test for pickle error
-    #nodes_to_train_on = nodes_to_train_on[node_to_predict]
-    #dm_original = dm_original[node_to_predict]
 
     # --- compute test features for node_to_predict ---
-    # remove node_to_predict from the graph
-    #print("graph",graph)
 
     graph_reduced = graph.delete_node_edges(node_to_predict)
-    #graph_reduced = graph.delete_node(node_to_predict)
-     
 
-    print("len of graph's and graph_reduced's edges")
-
-    print(len(graph.edges()))
-    print(len(graph_reduced.edges()))
-    
     dm_reduced = calc_avg_distance_matrix(graph=graph_reduced,
                                           removed_nodes=[node_to_predict],
                                           save_info=save_info,
@@ -210,7 +178,6 @@ def compute_training_features(save_info: sl.MemoryAccess, graph: gc.Graph, list_
           f"on nodes {list_nodes_to_predict} "
           f" graph  embedding {str(save_info.embedding_type)}")
 
-    print("saveinfo get diff type:", save_info.get_diff_type())
     if save_info.get_diff_type().has_one_init_graph():
         if num_eval_iterations is None:
             iteration_values = list(range(save_info.get_num_iterations()))
@@ -222,7 +189,6 @@ def compute_training_features(save_info: sl.MemoryAccess, graph: gc.Graph, list_
     if feature_type is None:
         feature_type = ft.FeatureType.DIFF_BIN_WITH_DIM
 
-    print("iteration_values:",iteration_values)
     for diff_iter in iteration_values:
         if diff_iter != -1:
             save_info.get_diff_type().set_iter(diff_iter)

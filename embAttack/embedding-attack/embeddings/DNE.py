@@ -104,9 +104,6 @@ class DNE(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
         params = dh.load_json_file(os.path.join(config.CONFIG_DIR,"myConf.json"))
         if not retrain:
             _,emb,weights = init(params["init"],"",str(pathlib.Path().resolve().joinpath(save_info.BASE_PATH+"/temp_weights/"))+"_"+str(removed_nodes)+"_"+str(iteration),len(graph.nodes()),config.GEM_PATH)
-            if len(graph_without_nodes) > 0:
-                dlnode = graph_without_nodes[-1]
-                emb[dlnode,:] = 0
 
         else:
             paramsTemp = params['init']['load_data']
@@ -118,10 +115,6 @@ class DNE(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
             embeddings = dh.load_json_file(str(pathlib.Path().resolve().joinpath(save_info.BASE_PATH+"/temp_weights/"))+"_"+str(removed_nodes)+"_"+str(iteration)+"_init")["embeddings"]
             weights = dh.load_json_file(str(pathlib.Path().resolve().joinpath(save_info.BASE_PATH+"/temp_weights/"))+"_"+str(removed_nodes)+"_"+str(iteration)+"_init")["weights"]
             embeddings = np.asarray(embeddings)
-
-            # delete node information from embedding
-            dlnode = graph_without_nodes[-1]
-            embeddings[dlnode,:] = 0
 
             weights = np.asarray(weights)
             G = dh.load_unweighted_digraph(paramsTemp,len(graph.nodes()))

@@ -100,7 +100,9 @@ def train_embedding_per_graph(graph: gc.Graph, embedding: Embedding, save_info: 
     if args.fixed_nodes:
         # nodes for bara
         if args.BarabasiDataset:
-            pass
+            tested_nodes = [12]
+            second_nodes = {12: [950]}
+            #pass
         # nodes for face
         if args.FacebookDataset:
             pass

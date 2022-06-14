@@ -84,11 +84,6 @@ class DHPE(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
             Sigma = np.diag(Sigma)
             emb = np.dot(U,(np.diag(np.sqrt(Sigma))))
 
-            # delete node information
-            if len(graph_without_nodes) > 0:
-                dlnode = graph_without_nodes[-1]
-                emb[dlnode,:] = 0
-
             SKatz = np.dot(np.linalg.inv(Ma), Mb)
             p_d_p_t = np.dot(U, np.dot(np.diag(Sigma),V.T))
             eig_err = np.linalg.norm(p_d_p_t - SKatz)

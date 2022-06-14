@@ -73,10 +73,6 @@ class DySat(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
             emb = np.load(save_info.BASE_PATH+"temp_embeddings/_1_"+graph_name.replace(", ]","]").replace(", ","x")+".npy")
 
 
-            if len(graph_without_nodes) > 0:
-                dlnode = graph_without_nodes[-1]
-                emb[dlnode,:] = 0
-
             # change for linkpred to
             #emb = np.load(config.GEM_PATH + "embAttack/embedding-attack/link_prediction/link_pred/my_embs_dySat/_1_"+graph_name.replace(", ]","]").replace(", ","x")+".npy")
         else:
@@ -87,9 +83,6 @@ class DySat(embeddings.embedding.Embedding):  # metaclass=abc.ABCMeta
             subprocess.call(command,shell=True)
             os.chdir(current_directory)
             emb = np.load(save_info.BASE_PATH+"temp_embeddings/_1_"+graph_name_original.replace(", ]","]").replace(", ","x")+"_2_"+graph_name.replace(", ]","]").replace(", ","x")+".npy")
-
-            dlnode = graph_without_nodes[-1]
-            emb[dlnode,:] = 0
 
 
             # change for linkpred to
