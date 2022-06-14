@@ -104,7 +104,7 @@ if __name__ == '__main__':
         import embeddings.GEM_embeddings as gemEmbed
         myEmbed = gemEmbed.GEM_embedding(embeds.Embedding).init_dynamicSDNE(dim=128,n_batch=500,n_iter=30, n_iter_subs=5, n_units=[400,200,],node_frac=2,n_walks_per_node=20,len_rw=1) #n_iter=#epochs #n_iter_subs=#RetrainEpochs
         myMemAcc = sl.MemoryAccess(graph=my_graph,embedding_type=gemEmbed,num_iterations=num_iterations,diff_type = dt.DiffType.DIFFERENCE,retraining=args.Retraining,dataset_name=dataset_is)
-        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=5,num_of_training_graphs=10,num_of_bins_for_tf=[10],args = args)
+        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=1,num_of_training_graphs=1,num_of_bins_for_tf=[10],args = args)
 
     if args.DNE:
         import myDyn
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         out_file.write(json.dumps(data))
         out_file.close()
 
-        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=2,num_of_training_graphs=2,num_of_bins_for_tf=[10],args = args)
+        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=1,num_of_training_graphs=1,num_of_bins_for_tf=[10],args = args)
 
     if args.DySat:
         sys.path.insert(0, config.GEM_PATH + "dySat/")
@@ -157,7 +157,7 @@ if __name__ == '__main__':
         import embeddings.dySat as dySatEmbed
         myEmbed = dySatEmbed.DySat(embeds.Embedding).init_dySat()
         myMemAcc = sl.MemoryAccess(graph=my_graph,embedding_type=dySatEmbed,num_iterations=num_iterations,diff_type = dt.DiffType.DIFFERENCE,retraining=args.Retraining,dataset_name=dataset_is)
-        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=5,num_of_training_graphs=5,num_of_bins_for_tf=[10],args = args)
+        myDyn.train_embedding_per_graph(graph=my_graph,embedding=myEmbed,save_info=myMemAcc,num_of_embeddings=num_iterations,num_of_test_evaluations_per_degree_level=1,num_of_training_graphs=1,num_of_bins_for_tf=[10],args = args)
 
 
     print("done, needed:",round(time()-start_time,2),"seconds")

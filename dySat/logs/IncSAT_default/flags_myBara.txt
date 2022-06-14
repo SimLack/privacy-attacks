@@ -1,8 +1,8 @@
-save_graphs_embs_in	/home/sim/privacy-attack/embAttack/results/retrain-True/graph_name-bara/embedding_type-dySat/
-graph1	nx_g_rm_[]_gwn_[]
-graph2	nx_g_rm_[]_gwn_[10]
+save_graphs_embs_in	/home/sim/upload/privacy-attack/embAttack/results/retrain-True/graph_name-bara/embedding_type-dySat/
+graph1	nx_g_rm_[12x950]_gwn_[12x950]
+graph2	
 min_time	2
-max_time	3
+max_time	2
 run_parallel	False
 base_model	IncSAT
 model	default

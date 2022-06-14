@@ -3,7 +3,7 @@ import sys
 import pathlib
 FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.join(FILE_PATH, "../..")
-DATA_PATH = "/home/sim/upload/privacy-attack/embAttack/results/retrain-False/graph_name-bara/embedding_type-DNE/temp_graphs"
+DATA_PATH = "/home/sim/upload/privacy-attack/embAttack/results/retrain-True/graph_name-bara/embedding_type-DNE/temp_graphs"
 CONF_PATH = os.path.join(ROOT_PATH, "conf")
 RES_PATH = os.path.join(ROOT_PATH, "res")
 SRC_PATH = os.path.join(ROOT_PATH, "src")
