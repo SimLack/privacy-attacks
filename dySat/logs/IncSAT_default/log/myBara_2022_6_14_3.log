@@ -1,0 +1,117 @@
+06/14/2022 11:25:52 - INFO: <map object at 0x7f613a7289b0>
+06/14/2022 11:25:58 - INFO: # train: 3903, # val: 97, # test: 877
+06/14/2022 11:26:03 - WARNING: From /home/sim/anaconda3/envs/mt1/lib/python3.6/site-packages/tensorflow/python/ops/sparse_grad.py:281: calling sparse_reduce_sum (from tensorflow.python.ops.sparse_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 0 train_loss= 2.04475
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 0 current_loss= 2.04318
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 0 reg_loss= 0.00157
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 1 train_loss= 1.64276
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 1 current_loss= 1.64117
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 1 reg_loss= 0.00159
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 2 train_loss= 1.42622
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 2 current_loss= 1.42458
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 2 reg_loss= 0.00164
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 3 train_loss= 1.38754
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 3 current_loss= 1.38583
+06/14/2022 11:26:07 - INFO: Mini batch Iter: 3 reg_loss= 0.00170
+06/14/2022 11:26:08 - INFO: Saving model at epoch 0
+06/14/2022 11:26:09 - INFO: Val results at epoch 0: Measure (HAD) AUC: 0.9305983632692104
+06/14/2022 11:26:09 - INFO: Test results at epoch 0: Measure (HAD) AUC: 0.9150064553540433
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 train_loss= 1.36822
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 current_loss= 1.36645
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 reg_loss= 0.00177
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 train_loss= 1.36546
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 current_loss= 1.36361
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 reg_loss= 0.00185
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 train_loss= 1.34191
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 current_loss= 1.33998
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 reg_loss= 0.00193
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 train_loss= 1.33891
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 current_loss= 1.33690
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 reg_loss= 0.00201
+06/14/2022 11:26:09 - INFO: Val results at epoch 1: Measure (HAD) AUC: 0.9150813051333828
+06/14/2022 11:26:09 - INFO: Test results at epoch 1: Measure (HAD) AUC: 0.9183361958787146
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 train_loss= 1.32833
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 current_loss= 1.32622
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 0 reg_loss= 0.00211
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 train_loss= 1.31072
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 current_loss= 1.30852
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 1 reg_loss= 0.00220
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 train_loss= 1.32670
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 current_loss= 1.32441
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 2 reg_loss= 0.00229
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 train_loss= 1.30439
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 current_loss= 1.30200
+06/14/2022 11:26:09 - INFO: Mini batch Iter: 3 reg_loss= 0.00239
+06/14/2022 11:26:10 - INFO: Val results at epoch 2: Measure (HAD) AUC: 0.9194388351578276
+06/14/2022 11:26:10 - INFO: Test results at epoch 2: Measure (HAD) AUC: 0.9478097952359097
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 train_loss= 1.28721
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 current_loss= 1.28473
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 reg_loss= 0.00248
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 train_loss= 1.27361
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 current_loss= 1.27104
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 reg_loss= 0.00258
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 train_loss= 1.28897
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 current_loss= 1.28629
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 reg_loss= 0.00268
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 train_loss= 1.28068
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 current_loss= 1.27790
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 reg_loss= 0.00278
+06/14/2022 11:26:10 - INFO: Val results at epoch 3: Measure (HAD) AUC: 0.9105112126687215
+06/14/2022 11:26:10 - INFO: Test results at epoch 3: Measure (HAD) AUC: 0.9352332313565086
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 train_loss= 1.25433
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 current_loss= 1.25146
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 0 reg_loss= 0.00288
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 train_loss= 1.29970
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 current_loss= 1.29673
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 1 reg_loss= 0.00297
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 train_loss= 1.32678
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 current_loss= 1.32371
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 2 reg_loss= 0.00307
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 train_loss= 1.25885
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 current_loss= 1.25569
+06/14/2022 11:26:10 - INFO: Mini batch Iter: 3 reg_loss= 0.00316
+06/14/2022 11:26:11 - INFO: Saving model at epoch 4
+06/14/2022 11:26:11 - INFO: Val results at epoch 4: Measure (HAD) AUC: 0.9318737379105112
+06/14/2022 11:26:11 - INFO: Test results at epoch 4: Measure (HAD) AUC: 0.9417847981287923
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 0 train_loss= 1.25670
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 0 current_loss= 1.25346
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 0 reg_loss= 0.00325
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 1 train_loss= 1.25353
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 1 current_loss= 1.25020
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 1 reg_loss= 0.00333
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 2 train_loss= 1.32994
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 2 current_loss= 1.32652
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 2 reg_loss= 0.00342
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 3 train_loss= 1.24461
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 3 current_loss= 1.24112
+06/14/2022 11:26:11 - INFO: Mini batch Iter: 3 reg_loss= 0.00350
+06/14/2022 11:26:12 - INFO: Val results at epoch 5: Measure (HAD) AUC: 0.9092358380274205
+06/14/2022 11:26:12 - INFO: Test results at epoch 5: Measure (HAD) AUC: 0.9324677654853737
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 train_loss= 1.25300
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 current_loss= 1.24943
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 reg_loss= 0.00358
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 train_loss= 1.24826
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 current_loss= 1.24460
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 reg_loss= 0.00366
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 train_loss= 1.24846
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 current_loss= 1.24473
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 reg_loss= 0.00373
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 train_loss= 1.24442
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 current_loss= 1.24062
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 reg_loss= 0.00381
+06/14/2022 11:26:12 - INFO: Val results at epoch 6: Measure (HAD) AUC: 0.9198639600382613
+06/14/2022 11:26:12 - INFO: Test results at epoch 6: Measure (HAD) AUC: 0.9393781797331786
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 train_loss= 1.23835
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 current_loss= 1.23447
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 0 reg_loss= 0.00388
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 train_loss= 1.21664
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 current_loss= 1.21269
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 1 reg_loss= 0.00395
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 train_loss= 1.23387
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 current_loss= 1.22985
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 2 reg_loss= 0.00403
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 train_loss= 1.22953
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 current_loss= 1.22544
+06/14/2022 11:26:12 - INFO: Mini batch Iter: 3 reg_loss= 0.00410

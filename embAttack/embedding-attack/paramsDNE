@@ -1,0 +1,9 @@
+For bara:
+iteration_number = 100k
+learning_rate = 0.05
+
+for others:
+iteration_number = 15k
+learning_rate = 0.003
+
+
